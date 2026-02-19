@@ -323,9 +323,9 @@ namespace FarmReplower
 
             Dictionary<string, string> configPhpReplacements = new Dictionary<string, string>
             {
-                {"define('DB_USERNAME'", $"define('DB_USERNAME', '{txtUsername.Text}');"},
-                {"define('DB_PASSWORD'", $"define('DB_PASSWORD', '{txtPassword.Text}');"},
-                {"define('DB_NAME'", $"define('DB_NAME', '{txtDatabaseName.Text}');"}
+                {"define('DB_USERNAME'", $"define('DB_USERNAME', getenv('DB_USERNAME') ?: '{txtUsername.Text}');"},
+                {"define('DB_PASSWORD'", $"define('DB_PASSWORD', getenv('DB_PASSWORD') ?: '{txtPassword.Text}');"},
+                {"define('DB_NAME'", $"define('DB_NAME', getenv('DB_NAME') ?: '{txtDatabaseName.Text}');"}
             };
 
             try
